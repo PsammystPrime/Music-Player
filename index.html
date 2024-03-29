@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gen-z Boomplay</title>
     <link rel="stylesheet" href="style.css" />
-    <script src="index.js"></script>
+    <script src="index.js" defer></script>
   </head>
   <body>
     <main>
@@ -13,14 +13,16 @@
         <h1>Song</h1>
         <p>Artist</p>
         <audio
-          src="./Wendy_Shay_-_Survivor_(Lyrics)(256k).mp3"
+          class="audio"
+          src="./songs/Wendy_Shay_-_Survivor_(Lyrics)(256k).mp3"
           controls
         ></audio>
+        <input type="range" value="0" name="" id="progress" />
         <div class="controls">
-          <button>Next</button>
-          <button>Prev</button>
-          <button>Play</button>
-          <button>Pause</button>
+          <button class="next">Next</button>
+          <button class="prev">Prev</button>
+          <button class="play">Play</button>
+          <button class="pause">Pause</button>
         </div>
       </div>
     </main>
