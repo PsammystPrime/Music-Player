@@ -5,7 +5,7 @@
   color: #fff;
 }
 main {
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   background: #333;
   display: flex;
@@ -17,7 +17,7 @@ main {
 }
 .container {
   background: #3f040e;
-  width: 400px;
+  max-width: 400px;
   padding: 25px 35px;
   text-align: center;
   border-radius: 20px;
@@ -35,11 +35,12 @@ main {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
 button {
   color: #333;
   padding: 10px;
-  width: 70px;
+  width: 80px;
   font-weight: bolder;
   font-size: large;
 }
