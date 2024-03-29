@@ -4,6 +4,7 @@ let btnPlay = document.querySelector(".play");
 let btnPause = document.querySelector(".pause");
 let btnPrev = document.querySelector(".prev");
 let btnNext = document.querySelector(".next");
+let title = document.querySelector(".title");
 
 let playlist = [
   "Wendy_Shay_-_Survivor_(Lyrics)(256k).mp3",
@@ -16,6 +17,7 @@ let playlist = [
 ];
 index = 0;
 audio.src = "./songs/" + playlist[index];
+title.textContent = playlist[index];
 
 audio.onloadedmetadata = function () {
   progress.max = audio.duration;
@@ -45,11 +47,15 @@ btnNext.addEventListener("click", () => {
   if (index === playlist.length - 1) {
     index = 0;
     audio.src = "./songs/" + playlist[index];
+    title.textContent = playlist[index];
+
     audio.play();
   } else {
     index++;
     console.log(index);
     audio.src = "./songs/" + playlist[index];
+    title.textContent = playlist[index];
+
     audio.play();
   }
 });
@@ -58,11 +64,15 @@ btnPrev.addEventListener("click", () => {
   if (index === 0) {
     index = playlist.length - 1;
     audio.src = "./songs/" + playlist[index];
+    title.textContent = playlist[index];
+
     audio.play();
   } else {
     index--;
     console.log(index);
     audio.src = "./songs/" + playlist[index];
+    title.textContent = playlist[index];
+
     audio.play();
   }
 });
