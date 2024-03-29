@@ -1,3 +1,6 @@
+body {
+  margin: 0;
+}
 * {
   margin: 0;
   padding: 0;
@@ -27,13 +30,13 @@ main {
 }
 #progress {
   width: 100%;
-
   margin: 40px 0;
 }
 
 .controlBtns {
   display: flex;
   justify-content: space-between;
+  gap: 8px;
   align-items: center;
   flex-wrap: wrap;
 }
@@ -53,8 +56,6 @@ img {
   border-radius: 50%;
   width: 220px;
   height: 220px;
-  /* width: 40px;
-  height: 40px; */
   line-height: 40px;
   object-fit: scale-down;
   border: 8px solid #fff;
@@ -72,4 +73,8 @@ img {
   to {
     border-color: black;
   }
+}
+.shuffled {
+  background-color: #3f040e;
+  color: chocolate;
 }
