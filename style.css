@@ -47,3 +47,28 @@ button:hover {
   background-color: darkslategray;
   color: chocolate;
 }
+
+img {
+  border-radius: 50%;
+  width: 220px;
+  height: 220px;
+  /* width: 40px;
+  height: 40px; */
+  line-height: 40px;
+  object-fit: scale-down;
+  border: 8px solid #fff;
+  animation-name: revolve;
+  animation-duration: 70s;
+  animation-direction: reverse;
+  animation-iteration-count: infinite;
+}
+
+@keyframes revolve {
+  from {
+    border-color: aqua;
+    transform: rotate(1080deg);
+  }
+  to {
+    border-color: black;
+  }
+}
