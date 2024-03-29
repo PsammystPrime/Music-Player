@@ -1,5 +1,5 @@
 let audio = document.querySelector(".audio");
-let songProgress = document.querySelector("#progress");
+let progress = document.querySelector("#progress");
 let btnPlay = document.querySelector(".play");
 let btnPause = document.querySelector(".pause");
 let btnPrev = document.querySelector(".prev");
@@ -18,6 +18,20 @@ index = 0;
 audio.src = "./songs/" + playlist[index];
 
 audio.onloadedmetadata = function () {
-  songProgress.max = audio.duration;
-  songProgress.value = audio.currentTime;
+  progress.max = audio.duration;
+  progress.value = audio.currentTime;
 };
+
+//when a audio is playing, set the progress' value to be the same as the audio's every half a second
+btnPlay.addEventListener("click", function () {
+  audio.play();
+  setInterval(() => {
+    progress.value = audio.currentTime;
+    let a = 0;
+    console.log(a++);
+  }, 500);
+});
+
+btnPause.addEventListener("click", function () {
+  audio.pause();
+});
