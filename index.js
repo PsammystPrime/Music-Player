@@ -22,6 +22,11 @@ audio.onloadedmetadata = function () {
   progress.value = audio.currentTime;
 };
 
+progress.onchange = function () {
+  audio.play();
+  audio.currentTime = progress.value;
+};
+
 //when a audio is playing, set the progress' value to be the same as the audio's every half a second
 btnPlay.addEventListener("click", function () {
   audio.play();
