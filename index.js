@@ -5,6 +5,7 @@ let btnPause = document.querySelector(".pause");
 let btnPrev = document.querySelector(".prev");
 let btnNext = document.querySelector(".next");
 let title = document.querySelector(".title");
+let shuffleMode = document.querySelector(".shuffle");
 
 let playlist = [
   "Wendy_Shay_-_Survivor_(Lyrics)(256k).mp3",
@@ -15,7 +16,11 @@ let playlist = [
   "Alarm 4.wav",
   "ayra_starr_rush_lyrics_h264_9596.mp4",
 ];
+
 index = 0;
+time = 0;
+let shuffle = false;
+
 audio.src = "./songs/" + playlist[index];
 title.textContent = playlist[index];
 
@@ -34,8 +39,6 @@ btnPlay.addEventListener("click", function () {
   audio.play();
   setInterval(() => {
     progress.value = audio.currentTime;
-    let a = 0;
-    console.log(a++);
   }, 500);
 });
 
@@ -44,19 +47,26 @@ btnPause.addEventListener("click", function () {
 });
 
 btnNext.addEventListener("click", () => {
-  if (index === playlist.length - 1) {
-    index = 0;
+  if (shuffle == true) {
+    console.log("tt");
+
+    index = Math.floor(Math.random() * playlist.length);
     audio.src = "./songs/" + playlist[index];
     title.textContent = playlist[index];
-
     audio.play();
   } else {
-    index++;
-    console.log(index);
-    audio.src = "./songs/" + playlist[index];
-    title.textContent = playlist[index];
-
-    audio.play();
+    if (index === playlist.length - 1) {
+      index = 0;
+      audio.src = "./songs/" + playlist[index];
+      title.textContent = playlist[index];
+      audio.play();
+    } else {
+      index++;
+      // console.log(audio.currentTime);
+      audio.src = "./songs/" + playlist[index];
+      title.textContent = playlist[index];
+      audio.play();
+    }
   }
 });
 
@@ -75,4 +85,13 @@ btnPrev.addEventListener("click", () => {
 
     audio.play();
   }
+});
+
+shuffleMode.addEventListener("click", function () {
+  if (shuffle == true) {
+    shuffle = false;
+  } else {
+    shuffle = true;
+  }
+  console.log(shuffle);
 });
