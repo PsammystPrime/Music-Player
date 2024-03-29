@@ -35,3 +35,29 @@ btnPlay.addEventListener("click", function () {
 btnPause.addEventListener("click", function () {
   audio.pause();
 });
+
+btnNext.addEventListener("click", () => {
+  if (index === playlist.length - 1) {
+    index = 0;
+    audio.src = "./songs/" + playlist[index];
+    audio.play();
+  } else {
+    index++;
+    console.log(index);
+    audio.src = "./songs/" + playlist[index];
+    audio.play();
+  }
+});
+
+btnPrev.addEventListener("click", () => {
+  if (index === 0) {
+    index = playlist.length - 1;
+    audio.src = "./songs/" + playlist[index];
+    audio.play();
+  } else {
+    index--;
+    console.log(index);
+    audio.src = "./songs/" + playlist[index];
+    audio.play();
+  }
+});
