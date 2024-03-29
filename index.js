@@ -1,17 +1,17 @@
-let audio = document.querySelector(".audio");
-let progress = document.querySelector("#progress");
-let btnPlay = document.querySelector(".play");
-let btnPause = document.querySelector(".pause");
-let btnPrev = document.querySelector(".prev");
-let btnNext = document.querySelector(".next");
-let title = document.querySelector(".title");
-let shuffleMode = document.querySelector(".shuffle");
+const audio = document.querySelector(".audio");
+const progress = document.querySelector("#progress");
+const btnPlay = document.querySelector(".play");
+const btnPause = document.querySelector(".pause");
+const btnPrev = document.querySelector(".prev");
+const btnNext = document.querySelector(".next");
+const title = document.querySelector(".title");
+const shuffleMode = document.querySelector(".shuffle");
 
 let playlist = [
   "Wendy_Shay_-_Survivor_(Lyrics)(256k).mp3",
   "ArrDee_-_Come_&_Go_(Official_Music_Video)(128k).mp3",
   "Lil Mosey - Noticed (Dir. by @_ColeBennett_)_2.mp3",
-  "alan_walker_style_without_you_new_song_2022_aac_21100.m4a",
+  "alan_walker_style without_you_new_song 2022_aac_21100.m4a",
   "Darassa Ft. Sho Madjozi - I Like It - [DJ Novemba Extended].mp3",
   "Alarm 4.wav",
   "ayra_starr_rush_lyrics_h264_9596.mp4",
@@ -62,7 +62,6 @@ btnNext.addEventListener("click", () => {
       audio.play();
     } else {
       index++;
-      // console.log(audio.currentTime);
       audio.src = "./songs/" + playlist[index];
       title.textContent = playlist[index];
       audio.play();
@@ -90,8 +89,13 @@ btnPrev.addEventListener("click", () => {
 shuffleMode.addEventListener("click", function () {
   if (shuffle == true) {
     shuffle = false;
+    switchColor();
   } else {
     shuffle = true;
+    switchColor();
   }
-  console.log(shuffle);
 });
+
+function switchColor() {
+  shuffleMode.classList.toggle("shuffled");
+}
